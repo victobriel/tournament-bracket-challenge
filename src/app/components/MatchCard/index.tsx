@@ -22,10 +22,6 @@ export default function MatchCard({ match }: MatchCardProps) {
     ].filter((score) => score !== null);
   };
 
-  const goldBgColor = "bg-[#EFBF04]";
-  const silverBgColor = "bg-[#C0C0C0]/70";
-  const bronzeBgColor = "bg-[#CE8946]/70";
-
   const isTheFinalMatch = () => {
     return match.bracketType === "gold";
   };
@@ -51,9 +47,9 @@ export default function MatchCard({ match }: MatchCardProps) {
   };
 
   const getColorClass = (teamNumber: 1 | 2) => {
-    if (isTheWinnerOfTournament(teamNumber)) return goldBgColor;
-    if (isTheSecondPlace(teamNumber)) return silverBgColor;
-    if (isTheThirdPlace(teamNumber)) return bronzeBgColor;
+    if (isTheWinnerOfTournament(teamNumber)) return "bg-gold";
+    if (isTheSecondPlace(teamNumber)) return "bg-silver/70";
+    if (isTheThirdPlace(teamNumber)) return "bg-bronze/70";
     return "";
   };
 
@@ -62,7 +58,7 @@ export default function MatchCard({ match }: MatchCardProps) {
       {isTheFinalMatch() && (
         <Badge>
           <p
-            className={`rounded-full ${goldBgColor} px-2 py-1 text-black/80 uppercase`}
+            className={`bg-gold rounded-full px-2 py-1 text-black/80 uppercase`}
           >
             Gold Match
           </p>
@@ -71,7 +67,7 @@ export default function MatchCard({ match }: MatchCardProps) {
       {isTheThirdPlaceMatch() && (
         <Badge>
           <p
-            className={`rounded-full ${bronzeBgColor} px-2 py-1 text-black/80 uppercase`}
+            className={`bg-bronze rounded-full px-2 py-1 text-black/80 uppercase`}
           >
             Bronze Match
           </p>

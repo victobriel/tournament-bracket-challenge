@@ -3,6 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-gold: #EFBF04;
+  --color-silver: #C0C0C0;
+  --color-bronze: #CE8946;
+}
+
+@theme {
+  --color-gold: #EFBF04;
+  --color-silver: #C0C0C0;
+  --color-bronze: #CE8946;
 }
 
 html {
