@@ -12,7 +12,7 @@ export const formatDate = (dateString: string) => {
     year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-    timeZone: "CST",
+    timeZone: "America/New_York",
     timeZoneName: "short",
   });
 };
