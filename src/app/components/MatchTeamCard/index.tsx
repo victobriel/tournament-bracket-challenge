@@ -26,7 +26,7 @@ export function MatchTeamCard({
       <div className="flex h-full">
         {teamScores.map((score, index) => (
           <div
-            key={`result-${index}`}
+            key={`score-team-${index}`}
             className={cn(
               "flex w-6 items-center justify-center border-l border-slate-300 px-2 text-xs font-semibold",
               isTheWinnerOfMatch && "bg-green-100",
