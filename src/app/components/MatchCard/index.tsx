@@ -67,7 +67,7 @@ export default function MatchCard({ match }: MatchCardProps) {
       {isTheThirdPlaceMatch() && (
         <Badge>
           <p
-            className={`bg-bronze rounded-full px-2 py-1 text-black/80 uppercase`}
+            className={`bg-bronze/70 rounded-full px-2 py-1 text-black/80 uppercase`}
           >
             Bronze Match
           </p>
