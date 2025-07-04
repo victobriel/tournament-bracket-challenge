@@ -1,9 +1,9 @@
+import { resolveParticipantNames } from "../lib/tournment";
 import { Match, Tournament } from "../types/tournament";
-import { useTournamentResolveNames } from "./use-tournament-resolve-names";
 
 export const useTournamentMatches = (tournament: Tournament) => {
   const matches = tournament.matches || [];
-  const resolvedMatches = useTournamentResolveNames(matches);
+  const resolvedMatches = resolveParticipantNames(matches);
 
   const organizeMatchesByRound = () => {
     return resolvedMatches.reduce(

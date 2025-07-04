@@ -5,17 +5,12 @@ export function resolveParticipantNames(matches: Match[]): Match[] {
     (a, b) => a.roundNumber - b.roundNumber,
   );
 
-  const matchByUuid = new Map<string, Match>();
-  sortedMatches.forEach((match) => {
-    matchByUuid.set(match.uuid, match);
-  });
-
   const resolvedMatches: Match[] = [];
 
-  for (const match of sortedMatches) {
+  sortedMatches.forEach((match) => {
     const resolvedMatch = { ...match };
 
-    // Resolver Team One
+    // Resolve Team One
     if (match.teamOnePlayerOne.startsWith("Winner of Match")) {
       const matchNumber = parseInt(
         match.teamOnePlayerOne.match(/\d+/)?.[0] || "0",
@@ -89,7 +84,6 @@ export function resolveParticipantNames(matches: Match[]): Match[] {
         resolvedMatch.teamTwoPlayerTwo = winnerPlayers.playerTwo;
       }
     } else if (match.teamTwoPlayerOne.includes("Loser of Semi")) {
-      // Para bronze final - pegar perdedor da semifinal
       const semiNumber = match.teamTwoPlayerOne.includes("Semi 1") ? 1 : 2;
       const semiMatch = resolvedMatches.find(
         (m) =>
@@ -115,7 +109,7 @@ export function resolveParticipantNames(matches: Match[]): Match[] {
     }
 
     resolvedMatches.push(resolvedMatch);
-  }
+  });
 
   return resolvedMatches;
 }
